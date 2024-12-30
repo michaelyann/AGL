@@ -9,16 +9,20 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    public function inscription()
+    {
+        return view('connexion');
+    }
     
     public function inscriptionPost(Request $request)
     {
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password); // Correct Hash::make
+        $user->password = Hash::make($request->password);
         $user->save();
         
-        return back()->with('success', 'Inscription réussie');
+        return back()->with('success', 'Inscription réussie.Vous pouvez vous connecter maintenant');
     }
 
     public function connect()
@@ -30,9 +34,15 @@ class AuthController extends Controller
     {
         $credentials = $request->only('mail', 'pswd');
         if (Auth::attempt(['email' => $credentials['mail'], 'password' => $credentials['pswd']])) {
-            return redirect('/home')->with('success', 'Connexion réussie');
+            return redirect('/Acceuil')->with('success', 'Connexion réussie');
         }
         return back()->with('error', 'Email ou mot de passe incorrect');
+    }
+
+    public function deconnexion()
+    {
+        Auth::logout();
+        return redirect('/connexion');
     }
 }
 

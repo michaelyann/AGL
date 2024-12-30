@@ -9,7 +9,7 @@
         <input type="checkbox" id="chk" aria-hidden="true">
 
         <div class="signup">
-                        <form action="{{ route('inscription.post') }}" method="POST">
+            <form action="{{ route('inscription.post') }}" method="POST">
                 @csrf
                 <label for="chk" aria-hidden="true">S'inscrire</label>
                 <input type="text" name="name" placeholder="Nom d'utilisateur" required="">
@@ -24,7 +24,7 @@
         <div class="login">
             <form action="{{ route('connexion.post') }}" method="POST">
                 @csrf
-                <label for="chk" aria-hidden="true">Se connecter</label>
+                <label for="chk" aria-hidden="true">se connecter</label>
                 <input type="email" name="mail" placeholder="Email" required="">
                 <input type="password" name="pswd" placeholder="Password" required="">
                 @if (session('error'))
