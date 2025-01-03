@@ -18,11 +18,13 @@ class AuthController extends Controller
     {
         $user = new User();
         $user->name = $request->name;
+        $user->prénom = $request->prénom;
+        $user->date = $request->date;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();
         
-        return back()->with('success', 'Inscription réussie.Vous pouvez vous connecter maintenant');
+        return back()->with('success', 'Inscription réussie.Vous pouvez maintenant  vous connecter.');
     }
 
     public function connect()
@@ -32,10 +34,15 @@ class AuthController extends Controller
 
     public function connectPost(Request $request)
     {
-        $credentials = $request->only('mail', 'pswd');
-        if (Auth::attempt(['email' => $credentials['mail'], 'password' => $credentials['pswd']])) {
-            return redirect('/Acceuil')->with('success', 'Connexion réussie');
+        $credetials = [
+            'email' => $request->mail,
+            'password' => $request->pswd,
+        ];
+ 
+        if (Auth::attempt($credetials)) {
+            return redirect('/Acceuil')->with('success', 'connexion réussie');
         }
+        
         return back()->with('error', 'Email ou mot de passe incorrect');
     }
 

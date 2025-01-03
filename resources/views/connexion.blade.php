@@ -11,14 +11,18 @@
         <div class="signup">
             <form action="{{ route('inscription.post') }}" method="POST">
                 @csrf
-                <label for="chk" aria-hidden="true">S'inscrire</label>
-                <input type="text" name="name" placeholder="Nom d'utilisateur" required="">
-                <input type="email" name="email" placeholder="Email" required="">
-                <input type="password" name="password" placeholder="Password" required="">
-                @if (session('success'))
-                    <div class="alert-success" role="alert">{{ session('success') }}</div>
-                @endif
-                <button>S'inscrire</button>
+                <div class="signup-form">
+                    <label for="chk" aria-hidden="true">S'inscrire</label>
+                    <input type="text" name="name" placeholder="Nom" required="">
+                    <input type="text" name="prénom" placeholder="Prénom" required="">
+                    <input type="date" name="date" placeholder="Date de naissance" required>
+                    <input type="email" name="email" placeholder="Email" required="">
+                    <input type="password" name="password" placeholder="Password" required="">
+                    @if (session('success'))
+                        <div class="alert-success" role="alert">{{ session('success') }}</div>
+                    @endif
+                    <button>S'inscrire</button>
+                </div>
             </form>
         </div>
         <div class="login">

@@ -30,7 +30,7 @@
 
     <main>
         <div class="container">
-            <h1>Bienvenue, {{ Auth::user()->name }}</h1>
+            <h1>Bienvenue, {{ Auth::user()->name }}.</h1>
         </div>
 
         <section class="hero-section">
