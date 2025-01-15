@@ -6,6 +6,7 @@
     --text-color: #FFFFFF;
 }
 
+/* Styles de base */
 * {
     margin: 0;
     padding: 0;
@@ -22,6 +23,7 @@ body {
     flex-direction: column;
 }
 
+/* En-tête */
 header {
     width: 100%;
     padding: 30px;
@@ -38,6 +40,7 @@ header h1 {
     margin-right: 20px;
 }
 
+/* Navigation */
 nav ul {
     display: flex;
     list-style: none;
@@ -58,16 +61,7 @@ nav a:hover {
     color: var(--primary-color);
 }
 
-.container h1.user {
-    text-align: center;
-    font-size: 24px;
-    margin-top: 20px;
-}
-
-.container h1.user em {
-    font-style: italic;
-}
-
+/* Styles du slider */
 .slider-container {
     width: 100%;
     margin: 40px 0;
@@ -78,7 +72,7 @@ nav a:hover {
 
 .slider-track {
     display: flex;
-    width: calc(300px * 18); 
+    width: calc(300px * 18); /* 9 images x 2 pour la boucle infinie */
     animation: scroll 30s linear infinite;
 }
 
@@ -107,27 +101,58 @@ nav a:hover {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-300px * 9));
+        transform: translateX(calc(-300px * 9)); /* La moitié de la largeur totale */
     }
 }
 
+/* Pause de l'animation au survol */
 .slider-container:hover .slider-track {
     animation-play-state: paused;
 }
 
-.lumiere {
+/* Styles des boutons et autres éléments */
+.user-actions {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 20px;
+    gap: 10px;
 }
 
-.lumiere img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
+.btn, .btn2 {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background: var(--primary-color);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    font-size: larger;
 }
 
+.btn a, .btn2 a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn:hover, .btn2:hover {
+    transform: scale(1.05);
+    background: var(--accent-color);
+}
+
+.Global {
+    list-style: none;
+}
+
+.Global img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+.Global:hover{
+    background-color: white;
+}
+
+/* Pied de page */
 footer {
     margin-top: auto;
     width: 100%;
@@ -137,6 +162,7 @@ footer {
     padding: 20px;
 }
 
+/* Media queries */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -149,8 +175,27 @@ footer {
         align-items: center;
     }
 
+    .user-actions {
+        margin-top: 15px;
+        justify-content: center;
+    }
+
     .slide {
         flex: 0 0 250px;
         height: 150px;
     }
+}
+/* Styles pour la section lumiere */
+.lumiere {
+    width: 100%;
+    overflow: hidden;
+}
+
+.lumiere img {
+    width: 100%;
+    height: auto;
+    padding: 40px;
+    object-fit: cover;
+    display: block;
+    margin: 40px;
 }

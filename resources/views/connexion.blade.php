@@ -1,43 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Slide Navbar</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('connexion.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Se Connecter</title>
+    <link rel="stylesheet" href="{{asset('css/connexion.css')}}">
 </head>
 <body>
-    <div class="main">  	
-        <input type="checkbox" id="chk" aria-hidden="true">
-
-        <div class="signup">
-            <form action="{{ route('inscription.post') }}" method="POST">
-                @csrf
-                <div class="signup-form">
-                    <label for="chk" aria-hidden="true">S'inscrire</label>
-                    <input type="text" name="name" placeholder="Nom" required="">
-                    <input type="text" name="prénom" placeholder="Prénom" required="">
-                    <input type="date" name="date" placeholder="Date de naissance" required>
-                    <input type="email" name="email" placeholder="Email" required="">
-                    <input type="password" name="password" placeholder="Password" required="">
-                    @if (session('success'))
-                        <div class="alert-success" role="alert">{{ session('success') }}</div>
-                    @endif
-                    <button>S'inscrire</button>
-                </div>
-            </form>
-        </div>
-        <div class="login">
-            <form action="{{ route('connexion.post') }}" method="POST">
-                @csrf
-                <label for="chk" aria-hidden="true">se connecter</label>
-                <input type="email" name="mail" placeholder="Email" required="">
-                <input type="password" name="pswd" placeholder="Password" required="">
-                @if (session('error'))
+    <div class="login-container">
+        <h1>Se Connecter</h1>
+        <form action="{{ route('connexion.post') }}" method="POST">
+            @csrf
+            <label for="name">Nom</label>
+            <input type="text" id="nom" name="name" placeholder="Entrez votre nom" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
+            
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
+            @if (session('error'))
                     <div class="alert-error" role="alert">{{ session('error') }}</div>
-                @endif
-                <button>Connexion</button>
-            </form>
-        </div>
-
-    
+            @endif
+            <div class="bouttons">
+                <button type="submit">Se connecter</button>
+                <button type="button" onclick="window.history.back();">Retour</button>
+            </div>
+        </form>
+        <p>Pas encore inscrit ? <a href="{{ url('/inscription') }}">Créer un compte</a></p>
+    </div>
 </body>
 </html>

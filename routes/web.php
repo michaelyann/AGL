@@ -16,6 +16,8 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route :: get ('/Acceuil', [HomeController::class, 'home'])->name('Acceuil');
+    Route :: get ('/Accueil', [HomeController::class, 'home'])->name('Accueil');
     Route::delete('/deconnexion', [AuthController::class, 'deconnexion'])->name('deconnexion');
 });
+
+Route::delete('/deconnexion', [AuthController::class, 'logout'])->name('deconnexion');

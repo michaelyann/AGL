@@ -1,0 +1,95 @@
+:root {  
+    --primary-color: #FF0000;  /* Rouge */  
+    --secondary-color: #000000; /* Noir */  
+    --accent-color: #FF6347;    /* Tomate */  
+    --background-color: #1A1A1A; /* Fond noir-gris foncé */  
+    --text-color: #FFFFFF;      /* Blanc */  
+}  
+
+* {  
+    margin: 0;  
+    padding: 0;  
+    box-sizing: border-box;  
+}  
+
+body {  
+    font-family: 'Quicksand', 'Arial', sans-serif;  
+    line-height: 1.6;  
+    background: linear-gradient(135deg, var(--background-color) 40%, var(--primary-color) 60%);  
+    color: var(--text-color);  
+    min-height: 100vh;  
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;  
+    padding: 20px;  
+}  
+
+
+
+.form-container {  
+    display: flex;  
+    flex-direction: column;  
+}  
+
+input, select {  
+    margin: 10px 0;  
+    padding: 15px;  
+    border: 1px solid #ddd;  
+    border-radius: 10px;  
+    font-size: 16px;  
+    outline: none;  
+}  
+
+input:focus, select:focus {  
+    border-color: var(--primary-color);  
+}  
+
+button {  
+    display: block;  
+    width: 100%;  
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));  
+    color: white;  
+    border: none;  
+    padding: 15px;  
+    border-radius: 10px;  
+    cursor: pointer;  
+    font-weight: 700;  
+    text-transform: uppercase;  
+    letter-spacing: 1px;  
+    transition: all 0.4s ease;  
+    margin-bottom: 15px;  
+}  
+
+button:hover {
+    transform: scale(1.05);  
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+}
+
+.user-list {
+    margin-top: 20px;
+}
+
+.user-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+.user-list li {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--secondary-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.delete-button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}

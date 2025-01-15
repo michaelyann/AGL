@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('date');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('pays');
             $table->timestamps();
         });
         
